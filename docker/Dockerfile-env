@@ -1,0 +1,47 @@
+#
+# Copyright (C) Ericsson AB, 2021
+#
+# The document(s) may be used, copied or otherwise distributed only with
+# the written permission from Ericsson AB or in accordance with the
+# terms and conditions stipulated in the agreement/contract under which
+# the document(s) have been supplied.
+#
+# Description:
+#
+# Dockerfile.tblinux with docker-local user-credentials in clear text
+#
+
+ARG registry=armdocker.rnd.ericsson.se/dockerhub-ericsson-remote
+
+FROM $registry/ubuntu:focal
+
+MAINTAINER george.ungureanu@ericsson.com
+
+ENV LL_CONTAINER_TAG=env
+ENV DEBIAN_FRONTEND=noninteractive
+
+## Dataflow PoC dev dependencies
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive TZ="Europe/Stockholm" apt-get install -y \
+	tzdata \
+	apt-utils \
+        sudo \
+	python3-pip \
+	&& rm -r /var/lib/apt/lists/*
+
+SHELL ["/bin/bash", "-c"]
+
+############################
+############################
+
+RUN apt-get update
+RUN apt-get install -y wget
+RUN apt-get install -y x11-apps
+RUN apt-get install -y emacs
+RUN apt-get install -y firefox
+RUN apt-get install -y git
+RUN apt-get install -y less
+RUN apt-get install -y curl
+
+#EXPOSE 22
+
+#ENV USER $tb_id_un
