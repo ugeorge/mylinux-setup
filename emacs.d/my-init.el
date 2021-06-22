@@ -48,7 +48,10 @@
 (load "my-packages")
 (load "my-auctex")
 (load "my-org")
+(load "my-python")
 
+(tool-bar-mode 1)
+(menu-bar-mode 1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

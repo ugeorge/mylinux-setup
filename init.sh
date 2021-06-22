@@ -7,7 +7,7 @@ if [[ ! -e ~/.emacs.d/init.el ]]; then
 (load \"my-init\")" > ~/.emacs.d/init.el
 fi
 
-touch ~/run_env 
-if ! cmp ~/run_env docker/run_env >/dev/null 2>&1; then
-    cp docker/run_env ~/run_env
-fi
+# touch ~/run_env 
+# if ! cmp ~/run_env docker/run_env >/dev/null 2>&1; then
+#     cp docker/run_env ~/run_env
+# fi

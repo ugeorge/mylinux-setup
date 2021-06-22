@@ -8,9 +8,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
 ; list the packages you want
-(setq package-list
-      '(auctex))
-
+(setq package-list '(flycheck magit) )
 
 ; activate all the packages
 (package-initialize)
@@ -20,6 +18,9 @@
   (package-refresh-contents))
 
 ; install the missing packages
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
+(defun install-missing ()
+  (dolist (package package-list)
+    (unless (package-installed-p package)
+      (package-install package)))
+  )
+

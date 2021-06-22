@@ -1,5 +1,11 @@
 
 ;;; AUCTeX
+
+; packages needed -- function defined in my-packages
+(add-to-list 'package-list 'auctex)
+(install-missing)
+
+
 ;; Customary Customization, p. 1 and 16 in the manual, and http://www.emacswiki.org/emacs/AUCTeX#toc2
 (setq TeX-parse-self t) ; Enable parse on load.
 (setq TeX-auto-save t)	; Enable parse on save.
