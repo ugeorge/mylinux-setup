@@ -1,6 +1,7 @@
 
 ;;; Repos
 (require 'package)
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
@@ -8,7 +9,14 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
 ; list the packages you want
-(setq package-list '(flycheck magit) )
+(setq package-list
+      '(flycheck
+        magit
+        ;; better-defaults
+        markdown-mode
+        spell-fu
+        )
+      )
 
 ; activate all the packages
 (package-initialize)
